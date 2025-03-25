@@ -1,5 +1,5 @@
 [project]
-name = "ComfyUI-Chinese-CLIP"
+name = "Chinese-CLIP"
 description = "支持直接在CLIP文本框中输入汉字，底层会自动翻译为英文，同时标点也会替换成英文（Support for input Chinese prompt）。"
 version = "1.0.0"
 license = {file = "LICENSE"}
@@ -10,6 +10,6 @@ Repository = "https://github.com/leeneo/ComfyUI-Chinese-CLIP"
 #  Used by Comfy Registry https://comfyregistry.org
 
 [tool.comfy]
-PublisherId = "ComfyUI-Chinese-CLIP"
+PublisherId = "leeneo"
 DisplayName = "ComfyUI-Chinese-CLIP"
 Icon = ""

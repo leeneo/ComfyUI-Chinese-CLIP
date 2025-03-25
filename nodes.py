@@ -1,5 +1,4 @@
 from translate import Translator
-from TransCode import Cn2EnCode
 
 class ChineseCLIP:
     """
@@ -22,12 +21,12 @@ class ChineseCLIP:
 
     # 定义节点的输出类型
     RETURN_TYPES = ("CONDITIONING",)  # 输出 CONDITIONING 类型数据
-    FUNCTION = "encode"  # 节点的入口函数为 "encode"
+    FUNCTION = "translate2en"  # 节点的入口函数为 "translate2en"
 
-    CATEGORY = "ComfyUI-Chinese-CLIP"  # 节点所属类别为 "ComfyUI-Chinese-CLIP"
-    TITLE = "ComfyUI-Chinese-CLIP"
+    CATEGORY = "Chinese-CLIP"  # 节点所属类别为 "ComfyUI-Chinese-CLIP"
+    TITLE = "Chinese-CLIP"
     
-    def encode(self, clip, text):
+    def translate2en(self, clip, text):
         """
         对输入文本进行翻译然后进行 CLIP 编码。
 
@@ -41,7 +40,7 @@ class ChineseCLIP:
 
         # 判断文本是否包含中文
         if self.is_chinese(text):
-            text = Cn2EnCode(text)
+            text = self.Cn2EnCode(text)
             print(f"++++++++++++++:\n{text}")
             # 如果包含中文，则将其翻译成英文。必须指定 from_lang 参数，否则翻译无效
             translator = Translator(to_lang="en", from_lang="zh")
@@ -73,7 +72,13 @@ class ChineseCLIP:
             if '\u4e00' <= char <= '\u9fff':
                 return True  # 如果包含中文字符，则返回 True
         return False  # 如果没有找到中文字符，则返回 False
-
+ 
+    @staticmethod
+    def Cn2EnCode(text):
+        CnText = u'，。！？【】（）《》“‘、￥——'
+        EnText = u',.!?[]()<>"\'\\$-'
+        table= {ord(f):ord(t) for f,t in zip(CnText,EnText)}
+        return text.translate(table)
 
 # 包含要导出的所有节点及其名称的字典
 # 注意：名称应全局唯一
@@ -82,6 +87,5 @@ NODE_CLASS_MAPPINGS = {
 }
 
 # 节点名称
-NODE_DISPLAY_NAME_MAPPINGS = {
-    "ChineseCLIP": "ChineseCLIP",
-}
+NODE_DISPLAY_NAME_MAPPINGS = {k: v.TITLE for k, v in NODE_CLASS_MAPPINGS.items()}
+
