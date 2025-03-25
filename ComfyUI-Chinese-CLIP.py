@@ -1,5 +1,5 @@
 from translate import Translator
-
+from TransCode import Cn2EnCode
 
 class ChineseCLIPEncode:
     """
@@ -40,6 +40,8 @@ class ChineseCLIPEncode:
 
         # 判断文本是否包含中文
         if self.is_chinese(text):
+            text = Cn2EnCode(text)
+            print(f"++++++++++++++:\n{text}")
             # 如果包含中文，则将其翻译成英文。必须指定 from_lang 参数，否则翻译无效
             translator = Translator(to_lang="en", from_lang="zh")
             translated_text = translator.translate(text)  # 进行翻译
