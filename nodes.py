@@ -44,7 +44,7 @@ class ChineseCLIP:
             # 如果包含中文，则将其翻译成英文。必须指定 from_lang 参数，否则翻译无效
             translator = Translator(to_lang="en", from_lang="zh")
             translated_text = translator.translate(text)  # 进行翻译
-            print(f"翻译结果：{translated_text}")  # 打印翻译结果到控制台
+            print(f"翻译结果：{translated_text}\n")  # 打印翻译结果到控制台
 
             text = translated_text  # 将翻译后的文本赋给 text 变量，用于后续的 CLIP 编码
 
