@@ -1,6 +1,6 @@
 [project]
 name = "ComfyUI-Chinese-CLIP"
-description = "支持直接在CLIP文本框中输入汉字，底层会自动翻译为英文，同时标点也会替换成英文（Support for input Chinese prompt）。"
+description = "Support for directly inputting Chinese characters in the CLIP text box. The system will automatically translate them into English and replace the punctuation marks as well."
 version = "1.0.0"
 license = {file = "LICENSE"}
 dependencies = ["translate"]
