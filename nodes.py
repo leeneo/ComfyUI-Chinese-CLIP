@@ -23,8 +23,8 @@ class ChineseCLIP:
     RETURN_TYPES = ("CONDITIONING",)  # 输出 CONDITIONING 类型数据
     FUNCTION = "translate2en"  # 节点的入口函数为 "translate2en"
 
-    CATEGORY = "Chinese-CLIP"  # 节点所属类别为 "ComfyUI-Chinese-CLIP"
-    TITLE = "Chinese-CLIP"
+    CATEGORY = "中文-Clip-节点"  # 节点所属类别为 "ComfyUI-Chinese-CLIP"
+    TITLE = "中文-CLIP文本编码器"
     
     def translate2en(self, clip, text):
         """
@@ -41,7 +41,6 @@ class ChineseCLIP:
         # 判断文本是否包含中文
         if self.is_chinese(text):
             text = self.Cn2EnCode(text)
-            print(f"++++++++++++++:\n{text}")
             # 如果包含中文，则将其翻译成英文。必须指定 from_lang 参数，否则翻译无效
             translator = Translator(to_lang="en", from_lang="zh")
             translated_text = translator.translate(text)  # 进行翻译
@@ -83,7 +82,7 @@ class ChineseCLIP:
 # 包含要导出的所有节点及其名称的字典
 # 注意：名称应全局唯一
 NODE_CLASS_MAPPINGS = {
-    "ChineseCLIP": ChineseCLIP,  # 将 ChineseCLIP 类注册为名为 "ChineseCLIP" 的节点
+    "ComfyUIChineseCLIP": ChineseCLIP,  # 将 ChineseCLIP 类注册为名为 "ComfyUIChineseCLIP" 的节点
 }
 
 # 节点名称
