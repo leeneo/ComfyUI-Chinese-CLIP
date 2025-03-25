@@ -1,7 +1,7 @@
 from translate import Translator
 from TransCode import Cn2EnCode
 
-class ChineseCLIPEncode:
+class ChineseCLIP:
     """
     用于 CLIP 的中英文编码节点。
 
@@ -24,8 +24,9 @@ class ChineseCLIPEncode:
     RETURN_TYPES = ("CONDITIONING",)  # 输出 CONDITIONING 类型数据
     FUNCTION = "encode"  # 节点的入口函数为 "encode"
 
-    CATEGORY = "AI_Boy"  # 节点所属类别为 "AI_Boy"
-
+    CATEGORY = "ComfyUI-Chinese-CLIP"  # 节点所属类别为 "ComfyUI-Chinese-CLIP"
+    TITLE = "ComfyUI-Chinese-CLIP"
+    
     def encode(self, clip, text):
         """
         对输入文本进行翻译然后进行 CLIP 编码。
@@ -77,10 +78,10 @@ class ChineseCLIPEncode:
 # 包含要导出的所有节点及其名称的字典
 # 注意：名称应全局唯一
 NODE_CLASS_MAPPINGS = {
-    "ChineseCLIPEncode": ChineseCLIPEncode,  # 将 ChineseCLIPEncode 类注册为名为 "ChineseCLIPEncode" 的节点
+    "ChineseCLIP": ChineseCLIP,  # 将 ChineseCLIP 类注册为名为 "ChineseCLIP" 的节点
 }
 
 # 节点名称
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "ChineseCLIPEncode": "ChineseCLIPEncode",
+    "ChineseCLIP": "ChineseCLIP",
 }
