@@ -11,7 +11,15 @@ Github: https://github.com/leeneo/ComfyUI-Chinese-CLIP
 
 # 工作流示例
 
+1. 节点搜索
 ![img.png](assets/img.png)
+
+2. 中文使用展示
+![img2.png](assets/img2.png)
+
+3. 中文后台翻译出的英文展示
+![img3.png](assets/img3.png)
+
 
 # 安装
 ComfyUI>custom_nodes>Git Clone this Github: https://github.com/leeneo/ComfyUI-Chinese-CLIP
